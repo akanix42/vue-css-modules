@@ -1,5 +1,6 @@
 global.vue = global.vue || {}
-global.vue.lang = global.vue.lang || {}
+// global.vue.lang = global.vue.lang || {}
+global.vue.cssModules = compileStyles;
 
 function compileStyles({
                          source,
@@ -8,10 +9,9 @@ function compileStyles({
                          tag
                        }) {
   try {
-    const result = global.cssModules.compiler.compileFromSource(source, inputFile, {transpileCssModules: !!tag.attribs.module});
+    const result = global.cssModules.compiler.compileFromCss(source, inputFile);
     const compileResult = result.compileResult;
-    if (!!tag.attribs.module)
-    
+
     let importsCode;
     if (compileResult.imports) {
       importsCode = compileResult.imports.map(importPath => `require ('${importPath}');`).join('\n');
@@ -34,5 +34,5 @@ function compileStyles({
   }
 }
 
-global.vue.lang.scss = compileStyles;
-global.vue.lang.css = compileStyles;
+// global.vue.lang.scss = compileStyles;
+// global.vue.lang.css = compileStyles;
