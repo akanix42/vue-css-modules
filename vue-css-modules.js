@@ -9,7 +9,7 @@ function compileStyles({
                          tag
                        }) {
   try {
-    const result = global.cssModules.compiler.compileFromCss(source, inputFile);
+    const result = global.cssModules.compiler.compileFromSource(source, inputFile);
     const compileResult = result.compileResult;
 
     let importsCode;
