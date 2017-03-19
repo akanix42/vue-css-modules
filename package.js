@@ -13,7 +13,7 @@ Package.describe({
 Package.registerBuildPlugin({
   name: 'scoped-name',
   use: [
-    'ecmascript',
+    'ecmascript@0.5.8',
     'nathantreid:css-modules@2.5.0'
   ],
   sources: [
