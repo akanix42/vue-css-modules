@@ -16,8 +16,8 @@ function compileStyles({
     if (compileResult.imports) {
       importsCode = compileResult.imports.map(importPath => `require ('${importPath}');`).join('\n');
     }
-    if (result.referencedImportPaths) {
-      result.referencedImportPaths.forEach(importPath => dependencyManager.addDependency(importPath));
+    if (compileResult.importTree) {
+      compileResult.importTree.forEach(importPath => dependencyManager.addDependency(importPath));
     }
 
     const vueResult = {
