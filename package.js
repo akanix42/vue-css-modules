@@ -14,6 +14,7 @@ Package.registerBuildPlugin({
   name: 'scoped-name',
   use: [
     'ecmascript',
+    'nathantreid:css-modules@2.5.0'
   ],
   sources: [
     'vue-css-modules.js'
