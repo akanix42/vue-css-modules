@@ -23,7 +23,7 @@ function compileStyles({
     const vueResult = {
       css: result.compileResult.stylesheet,
       map: JSON.stringify(result.sourceMap),
-      cssModules: tag.attribs.module ? result.compileResult.tokens : null,
+      cssModules: result.compileResult.tokens,
       js: importsCode,
     };
     return vueResult;
