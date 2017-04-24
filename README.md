@@ -45,4 +45,4 @@ Composition from other .vue files currently doesn't work. To enable composition 
 
 ## Package Options
 CSS modules compilation is handled by [nathantreid:css-modules](https://github.com/nathantreid/meteor-css-modules). Please see that package for configuration information.
-Options from the `nathantreid:css-modules` package.json configuration will also be applied to these. Note that if you are using less, scss, etc with nathantreid:css-modules, options that affect transpilation (such as `globalVariables`) will not be applied to your .vue styles.
+Options from the `nathantreid:css-modules` package.json configuration will also be applied to these. Note that if you are using preprocessors such as less, scss, etc with nathantreid:css-modules, options that affect transpilation (such as `globalVariables`) will not be applied to your .vue styles.
