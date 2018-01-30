@@ -35,7 +35,7 @@ function compileStyles({
     }
 
     if (compileResult.stylesCode) {
-      const moduleName = typeof tag.attribs.module === 'string' ? tag.attribs.module : '$style';
+      const moduleName = typeof tag.attrs.module === 'string' ? tag.attrs.module : '$style';
       if (cssModules === undefined) {
         cssModules = {};
       }
