@@ -1,5 +1,8 @@
-global.vue = global.vue || {}
-// global.vue.lang = global.vue.lang || {}
+import fs from 'fs';
+import getAbsoluteImportPath from './getAbsoluteImportPath';
+import { stripIndent } from 'common-tags';
+
+global.vue = global.vue || {};
 global.vue.cssModules = compileStyles;
 
 function compileStyles({
@@ -42,6 +45,17 @@ function compileStyles({
       cssModules[moduleName] = compileResult.stylesCode;
     }
 
+    if (compileResult.partialTypescriptDeclaration) {
+      const declarationPath = `${getAbsoluteImportPath(compileResult.filePath)}.d.ts`;
+      const output = stripIndent`
+        interface IStyles {
+          ${compileResult.partialTypescriptDeclaration}
+        }
+        export const $style: IStyles;
+      `;
+      fs.writeFile(declarationPath, output);
+    }
+
     const vueResult = {
       css: result.compileResult.stylesheet,
       map: JSON.stringify(result.sourceMap),
@@ -55,3 +69,4 @@ function compileStyles({
     throw err;
   }
 }
+
